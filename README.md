@@ -124,8 +124,9 @@ API is available on NodePort services, to get access to NodePort endpoints follo
 *minikube service hello-b-hello-api-customerb --url*
 
 ## Notes
-Unfortunately, I couldn't fix DNS problems with minikube on my laptop(sudo permissions are restricted), so I didn't use Ingress for exposing services. This is the reason why I decided to use NodePort
-
+ - Unfortunately, I couldn't fix DNS problems with minikube on my laptop(sudo permissions are restricted), so I didn't use Ingress for exposing services. This is the reason why I decided to use NodePort
+ - Containers becomes ready in ~30sec, it's a lot for small service. Need to validate and tune probes setup to improve it. And also check minikube setup
+ 
 ## The next steps
 it's a bit difficult to develop CI/CD without real hosting and environment requirements, but in general I would create the following pipelines:
 1. Merge requests:<br>
