@@ -4,10 +4,10 @@ set -o allexport
 source hello.env
 set +o allexport
 
-  if [ $(minikube status | grep Stopped > /dev/null 2>&1; echo $?) -eq 0 ]; then
-    echo "Staring minikube.."
-    minikube start
-  fi
+if [ $(minikube status | grep Stopped > /dev/null 2>&1; echo $?) -eq 0 ]; then
+  echo "Staring minikube.."
+  minikube start
+fi
 
 kubectl config set-context minikube
 
