@@ -11,6 +11,7 @@ set +o allexport
 
 kubectl config set-context minikube
 
+# Install or upgrade release depends on the previous deployments
 if [ $(helm list | awk '{print $1}' | grep hello-a > /dev/null 2>&1; echo $?) -eq 0 ]; then
   helm upgrade hello-a $HELM_CHART_LOCATION --set app.serviceOwner=customerA
 else

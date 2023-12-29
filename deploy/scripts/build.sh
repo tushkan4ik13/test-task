@@ -5,7 +5,10 @@ source hello.env
 set +o allexport
 
 pushd $SOURCE_LOCATION
+# Update API version in swagger
 yq -i ".info.version = env(IMAGE_VERSION)" source/modules/api/hello/swagger.yml
+
+# Build docker image and push to repo
 docker build --tag $IMAGE_NAME:$IMAGE_VERSION \
     --target hello_api . \
     && echo "Docker image $IMAGE_NAME:$IMAGE_VERSION was created"
@@ -20,6 +23,7 @@ if [ $PUSH_TO_MINIKUBE == "true" ]; then
 fi
 popd
 
+# Update image tag in Helm manifest
 echo "Updating Hello API Helm chart"
 yq -i ".image.tag = env(IMAGE_VERSION)" $HELM_CHART_LOCATION/values.yaml
 yq -i ".appVersion = env(IMAGE_VERSION)" $HELM_CHART_LOCATION/Chart.yaml
