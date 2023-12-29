@@ -12,8 +12,8 @@ paths:
       operationId: "modules.api.hello.api.get_greeting"
       tags:
         - "test"
-      summary: "The function returns greeting message based service ownership"
-      description: "Function detects owner based on SERVICE_OWNER environment variable inside container"
+      summary: "The function returns greeting message based on service ownership"
+      description: "Function detects owner thru SERVICE_OWNER environment variable inside container"
       responses:
         200:
           description: "Successfully retrieve greeting message and show to a requester"
