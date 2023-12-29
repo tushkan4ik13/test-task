@@ -45,7 +45,7 @@ External Python modules:
  - connexion[swagger-ui,flask,uvicorn]==3.0.5
  - pytest==7.4.3
 
- All tests and development were performed with using **Python 3.12**, but it should work with any python3 distributation.
+ All tests and development were performed with using **Python 3.12**, but it should work with any python3 distribution.
 
 ## Testing
 Codebase contains unit and functional tests.
