@@ -1,0 +1,50 @@
+openapi: 3.0.0
+info:
+  title: "Hello REST API"
+  description: "Hello API service to greet people who are logged in"
+  version: "1.0.0-123-test"
+servers:
+  - url: "/api"
+    description: "Test API server"
+paths:
+  /hello:
+    get:
+      operationId: "modules.api.hello.api.get_greeting"
+      tags:
+        - "test"
+      summary: "The function returns greeting message based on SERVICE_OWNER environment variable"
+      responses:
+        200:
+          description: "Successfully retrieve greeting message and show to a requester"
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: "Hi"
+        500:
+          description: "Internal Server Error. A Python function exits with error"
+          content:
+            application/json: {}
+  /health:
+    get:
+      operationId: "modules.api.hello.api.get_health"
+      tags:
+        - "test"
+      summary: "The function returns health status for the Hello service"
+      responses:
+        200:
+          description: "Health status was successfully retrieved from the Hello service"
+          content:
+            application/json:
+              schema:
+                type: array
+              examples:
+                health:
+                  value: |
+                    {
+                      "Hello Service Status": "UP"
+                    }
+        500:
+          description: "Internal Server Error. A Python function exits with error"
+          content:
+            application/json: {}
