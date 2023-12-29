@@ -21,6 +21,11 @@ Tests:
  - source/tests/test_unit_api_hello.py - Basic unit tests
  - source/tests/test_functional_api_hello.py - Functional tests for Web Application
 
+### API Endpoints
+- /api/ui - Swagger UI which provides documentation for API endpoints
+- /api/health - Basic Health check
+- /api/hello - Greeting endpoint
+
 ### How to prepare Python venv
 *cd source*<br>
 *pip3 install venv*<br>
@@ -31,11 +36,6 @@ Tests:
 ### How to run the API service
 *cd source*<br>
 *python3 app_hello_api.py*
-
-### API Endpoints
-- /api/ui - Swagger UI which provides documentation for API endpoints
-- /api/health - Basic Health check
-- /api/hello - Greeting endpoint
 
 ## Prerequsites
 Tools/modules below should be installed before run API service
