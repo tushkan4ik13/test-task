@@ -2,7 +2,7 @@ from modules.api.hello.api import hello_api_app
 from modules.web_svc_functions.functions import get_server_port
 
 
-# # Start web server
+# Start web server
 app = hello_api_app()
 
 

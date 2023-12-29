@@ -1,3 +1,8 @@
+"""
+Hello API service module logic and reference to swagger(OpenAPI 3.0) definition
+"""
+
+
 from os import environ
 from flask import jsonify, render_template, request
 from requests import get, ConnectionError
@@ -53,6 +58,7 @@ def hello_api_app():
     app = FlaskApp(__name__, specification_dir="./")
     app.add_api("swagger.yml")
 
+    # Expose root endpoint with link to documentation
     @app.route("/", methods=["GET"])
     def root():
         return render_template("welcome.html", swagger_url=f"{request.url_root}api/ui")

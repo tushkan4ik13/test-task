@@ -45,7 +45,7 @@ External Python modules:
  - connexion[swagger-ui,flask,uvicorn]==3.0.5
  - pytest==7.4.3
 
- All tests and development were performed with using **Python 3.12**
+ All tests and development were performed with using **Python 3.12**, but it should work with any python3 distributation.
 
 ## Testing
 Codebase contains unit and functional tests.
@@ -100,6 +100,13 @@ if you wish to test API service thru docker, then run ./run_docker.sh script
 
 ### Kubernetes deployment
 Kubernetes deployment is organized thru Helm chart, which located in **deploy/helm** folder
+Helm chart has .Values.app.serviceOwner param which defines greeting message in the container<br>
+
+Simple way to install chart with different name is:<br>
+helm install <release name> <path to helm chart> --set app.serviceOwner=customerA<br>
+Example:
+*cd deploy/helm*
+*helm install hello-api ./hello-api --set app.serviceOwner=customerA*<br>
 
 For execution of kubernetes deployment please run scripts/deploy.sh<br>
 The script runs minikube and deploys two charts for CustomerA and CustomerB into **default** namespace.
@@ -127,6 +134,7 @@ SAST<br>
 Scan for sensitive data(like password leaks)<br>
 Run application build(if exist) and unit test jobs<br>
 2. CI:<br>
+Run Semver<br>
 Run build(if exist)<br>
 Unit tests<br>
 Functional tests<br>

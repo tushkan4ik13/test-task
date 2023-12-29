@@ -3,4 +3,4 @@ name: hello-api
 description: A Helm chart to deploy Hello API Service
 type: application
 version: 1.0.0
-appVersion: 1.0.0-123-test-asd
+appVersion: 1.0.0-124

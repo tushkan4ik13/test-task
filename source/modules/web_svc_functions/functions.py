@@ -1,3 +1,8 @@
+"""
+Various service and help functions, which are used in the project
+"""
+
+
 from os import environ
 
 
