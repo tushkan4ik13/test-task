@@ -26,6 +26,12 @@ Tests:
 - /api/health - Basic Health check
 - /api/hello - Greeting endpoint
 
+### Swagger
+Swagger library helps to simply organize API structure, keep and track API documenation as code.<br>
+There is no needs for additional documantation/KB pages, because everything can be found in Swagger UI. The UI also allows to perform test API calls to real enpoints.<br>
+
+Swagger confguration file - **source/modules/api/hello/swagger.yml**
+
 ### How to prepare Python venv
 *cd source*<br>
 *pip3 install venv*<br>
@@ -85,6 +91,7 @@ If needed you can set SERVER_PORT environment variable to change defult web serv
   - http://localhost:8080/api/hello
   - http://localhost:8080/api/health
   - http://localhost:8080/api/ui (Swagger allows to validate enpoints from UI)
+4. Open http://localhost:8080/api/ui and execute API calls from UI
 
 ### Automation
 Docker is used as CRI for containers and minikube for kubernetes validation.<br>
@@ -102,14 +109,14 @@ if you wish to test API service thru docker, then run ./run_docker.sh script
 Kubernetes deployment is organized thru Helm chart, which located in **deploy/helm** folder
 Helm chart has .Values.app.serviceOwner param which defines greeting message in the container<br>
 
-Simple way to install chart with different name is:<br>
-helm install <release name> <path to helm chart> --set app.serviceOwner=customerA<br>
+Simple way to install chart with different customer name is:<br>
+helm install <release name> <path to helm chart> --set app.serviceOwner=some_name<br>
 Example:
 *cd deploy/helm*
 *helm install hello-api ./hello-api --set app.serviceOwner=customerA*<br>
 
 For execution of kubernetes deployment please run scripts/deploy.sh<br>
-The script runs minikube and deploys two charts for CustomerA and CustomerB into **default** namespace.
+The script starts minikube and deploys two charts for CustomerA and CustomerB into **default** namespace.
 
 When deployment is completed, validate that pods are up and running(wait around 30 sec):<br>
 *kubectl config set-context minikube*<br>

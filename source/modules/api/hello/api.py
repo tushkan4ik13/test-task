@@ -1,5 +1,5 @@
 """
-Hello API service module logic and reference to swagger(OpenAPI 3.0) definition
+Hello API service logic and reference to swagger(OpenAPI 3.0) definition
 """
 
 
