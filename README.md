@@ -15,7 +15,7 @@ The API codebase is stored in **source** folder
 Modules:
 - api.hello is module which handle all API logic
 - local_db is mock module to generate customers datastructure
-- wev_svc_functions is module which handles service functions required for API work
+- web_svc_functions is module which handles service functions required for API work
 
 Tests:
  - source/tests/test_unit_api_hello.py - Basic unit tests
