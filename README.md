@@ -21,7 +21,7 @@ Tests:
  - source/tests/test_unit_api_hello.py - Basic unit tests
  - source/tests/test_functional_api_hello.py - Functional tests for Web Application
 
-### Prepare venv
+### How to prepare Python venv
 *cd source*<br>
 *pip3 install venv*<br>
 *python3.12 -m venv venv*<br>
